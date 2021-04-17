@@ -3,20 +3,16 @@ n = int(input())
 reg = dict()
 
 for i in range(n):
-    name_number = str(input())
-    for i in name_number:
-        if i == ' ' :
-            a = name_number.index(' ')
-            name = name_number[:a]
-            number = name_number[a+1:]
-            break
+    name, number = list(input().split())
     reg[name] = number
     
-for i in range(n):
-    
-    query = str(input())
-    try: 
-        print(query+'='+reg.get(query))
+while True:  
+    try:
+        query = str(input()) 
+        if query in reg:
+            print(query+'='+reg.get(query))
+        else:
+            print("Not found")
     except:
-        print("Not found")
+        break
     
